@@ -48,3 +48,19 @@ Older editors can omit `setLanguage`. They keep their connection, but live langu
 Set `VITE_ANNOTATION_URL` before building the frontend when the service is available. Until then, production builds show a connection notice in place of the editor.
 
 Add the frontend's origin to the annotation service's `VITE_HOST_ORIGINS`. The connection validates the parent origin, channel, and iframe instance; language control uses that connection rather than an unrestricted window-message listener.
+
+## MorningStar sign-in
+
+Leave `VITE_MORNINGSTAR_SIGN_IN_URL` unset until the editor and the identity service support the exchange. Set it to a dedicated HTTPS page on the same origin as `VITE_ANNOTATION_URL`, without a query string or fragment. GitHub Pages deployments can supply it as an Actions variable. Deploy the workspace and editor with browser cookie settings that allow the editor's normal embedded session to work. Permit the known workspace origin in the editor and retain the opener relationship for the sign-in window.
+
+The sign-in control runs in the annotation workspace. It keeps the mounted editor and current draft in place. The browser messages outlined below carry protocol `rosetta:morningstar:1` and use exact target origins. The workspace checks the origin, source window and request ID on replies. The editor must validate the workspace origin and exact opener or parent before processing the request.
+
+| Sender | Type | Data and action |
+| --- | --- | --- |
+| Editor sign-in window | `popup-ready` | Tell the workspace that the sign-in window is ready. |
+| Workspace | `sign-in` | Send a fresh `requestId` to the sign-in window. |
+| Editor sign-in window | `sign-in-complete` or `sign-in-failed` | Echo `requestId`. The window reports completion after exchanging the platform confirmation for the editor session. |
+| Workspace | `check-session` | Send `requestId` to the mounted editor iframe. |
+| Editor iframe | `session-status` | Echo `requestId` and return a boolean `signedIn` after reloading the authenticated session through the editor API. |
+
+The identity exchange uses the editor's existing browser identity. The workspace never receives platform credentials, the editor's cookie or its completion key. A sign-in window's reply alone does not change the workspace to the signed-in state. Email sign-in remains available in the editor.

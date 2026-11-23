@@ -19,10 +19,12 @@ import { fileURLToPath } from 'node:url';
 import { setTimeout as delay } from 'node:timers/promises';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+const editorOrigin = 'https://editor.example.test';
+const identityProtocol = 'rosetta:morningstar:1';
 
 test(
   'the real public application exchanges files, configuration, results and recovery drafts with an isolated iframe',
-  { timeout: 60000 },
+  { timeout: 120000 },
   async () => {
     const built = await build({
       configFile: false,
@@ -38,7 +40,10 @@ test(
       },
       define: {
         'import.meta.env.VITE_ANNOTATION_URL': JSON.stringify(
-          'http://127.0.0.1:4175/',
+          editorOrigin + '/',
+        ),
+        'import.meta.env.VITE_MORNINGSTAR_SIGN_IN_URL': JSON.stringify(
+          editorOrigin + '/morningstar',
         ),
       },
       logLevel: 'silent',
@@ -114,7 +119,7 @@ test(
       );
       const frame = document.querySelector('iframe')!;
       const address = new URL(frame.src);
-      assert.equal(address.origin, 'http://127.0.0.1:4175');
+      assert.equal(address.origin, editorOrigin);
       let initial: FrameInput | undefined;
       let host: Remote<FrameHost> | undefined;
       let updates = 0;
@@ -364,6 +369,40 @@ test(
         'Selecting the active task should close the drawer',
       );
       assert.equal(document.querySelector('iframe'), annotation.frame);
+      const popup = {
+        closed: false,
+        close() { this.closed = true; },
+        postMessage(data: { requestId: string }, origin: string) {
+          assert.equal(origin, editorOrigin);
+          requestId = data.requestId;
+        },
+      };
+      let requestId: string | undefined;
+      const nativeOpen = window.open;
+      window.open = ((url: string) => {
+        assert.equal(url, editorOrigin + '/morningstar');
+        return popup;
+      }) as unknown as typeof window.open;
+      function identityMessage(source: unknown, type: string, value = {}) {
+        window.dispatchEvent(new window.MessageEvent('message', {
+          origin: editorOrigin,
+          source: source as Window,
+          data: { protocol: identityProtocol, type, requestId, ...value },
+        }));
+      }
+      findButton(document, 'Sign in with MorningStar')!.click();
+      identityMessage(popup, 'popup-ready');
+      assert.ok(requestId);
+      identityMessage(popup, 'sign-in-complete');
+      assert.equal(document.body.textContent.includes('MorningStar sign-in confirmed'), false);
+      identityMessage(annotation.frame.contentWindow, 'session-status', { signedIn: true });
+      await until(
+        () => document.body.textContent.includes('MorningStar sign-in confirmed'),
+        'The mounted editor should confirm the new session',
+      );
+      assert.equal(popup.closed, true);
+      assert.equal(document.querySelector('iframe'), annotation.frame);
+      window.open = nativeOpen;
       annotation = await switchFromDrawer(secondTask.name);
       assert.equal(annotation.initial.taskId, secondTask.id);
       annotation = await switchFromDrawer(task.name);

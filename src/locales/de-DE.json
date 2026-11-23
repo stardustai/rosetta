@@ -1,4 +1,9 @@
 {
+  "Sign in with MorningStar": "Mit MorningStar anmelden",
+  "MorningStar sign-in confirmed": "MorningStar-Anmeldung bestätigt",
+  "MorningStar sign-in could not be confirmed. Try again.": "Die MorningStar-Anmeldung konnte nicht bestätigt werden. Erneut versuchen.",
+  "The sign-in window closed before sign-in finished.": "Das Anmeldefenster wurde vor Abschluss der Anmeldung geschlossen.",
+  "Allow pop-ups to sign in with MorningStar.": "Pop-ups erlauben, um sich mit MorningStar anzumelden.",
   "Annotation service is not connected": "Anmerkungsdienst nicht verbunden",
   "You can import and manage tasks here. Ask the site administrator to connect the annotation service before editing annotations.": "Hier können Sie Aufgaben importieren und verwalten. Bitten Sie die Administration, vor der Bearbeitung den Anmerkungsdienst zu verbinden.",
   "The annotation page has exited. Open it again": "Die Annotationsseite wurde geschlossen. Öffnen Sie sie erneut",

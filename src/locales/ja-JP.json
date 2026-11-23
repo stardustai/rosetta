@@ -1,4 +1,9 @@
 {
+  "Sign in with MorningStar": "MorningStar でログイン",
+  "MorningStar sign-in confirmed": "MorningStar へのログインを確認しました",
+  "MorningStar sign-in could not be confirmed. Try again.": "MorningStar へのログインを確認できませんでした。もう一度お試しください。",
+  "The sign-in window closed before sign-in finished.": "ログインが完了する前にウィンドウが閉じられました。",
+  "Allow pop-ups to sign in with MorningStar.": "MorningStar でログインするには、ポップアップを許可してください。",
   "Annotation service is not connected": "アノテーションサービスが接続されていません",
   "You can import and manage tasks here. Ask the site administrator to connect the annotation service before editing annotations.": "ここではデータのインポートとタスク管理ができます。アノテーションを編集する前に、管理者にサービスの接続を依頼してください。",
   "The annotation page has exited. Open it again": "アノテーションページが終了しました。もう一度開いてください",
