@@ -1,0 +1,7 @@
+Willkommen beim eigenständigen Annotationswerkzeug Rosetta.
+
+Am Montagmorgen fuhr Alex mit dem Zug von London nach Cambridge, um mit dem Team ein Annotationsprojekt für autonomes Fahren zu besprechen.
+
+Das Team muss Fahrzeuge und Fußgänger auf Kreuzungsbildern mit Rechtecken markieren, Hindernisse in LiDAR-Punktwolken mit 3D-Annotationen versehen und Personen, Städte und Zeitangaben in diesem Text kennzeichnen.
+
+Wählen Sie „Alex“ oder „London“ aus, um Ihre erste Annotation zu erstellen.

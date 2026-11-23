@@ -1,6 +1,6 @@
 # Iframe language control
 
-The host and editor use `en-US` and `zh-CN`. English is the default. Language updates travel through the existing origin-checked MessageChannel connection.
+The host and editor use `en-US` (English), `zh-CN` (Simplified Chinese), `de-DE` (German), and `ja-JP` (Japanese). English is the default. Language updates travel through the existing origin-checked MessageChannel connection.
 
 ## Set an initial language
 
@@ -15,7 +15,7 @@ configureRosetta({
 
 The `language` prop takes precedence for that editor instance. If it is omitted, the client follows the shared i18next language. The host workspace's selector uses this shared instance.
 
-The initial iframe URL includes `lng=en-US` or `lng=zh-CN`. The same value is supplied in the first `FrameInput`:
+The initial iframe URL includes `lng=en-US`, `lng=zh-CN`, `lng=de-DE`, or `lng=ja-JP`. The same value is supplied in the first `FrameInput`:
 
 ```ts
 interface FrameInput {
@@ -23,7 +23,7 @@ interface FrameInput {
   index: number;
   view: 'annotation' | 'operators' | 'algorithms';
   taskId: string;
-  language?: 'en-US' | 'zh-CN';
+  language?: 'en-US' | 'zh-CN' | 'de-DE' | 'ja-JP';
 }
 ```
 
@@ -33,7 +33,7 @@ The editor exposes a separate method:
 
 ```ts
 interface FrameEditor {
-  setLanguage?(language: 'en-US' | 'zh-CN'): Promise<void>;
+  setLanguage?(language: 'en-US' | 'zh-CN' | 'de-DE' | 'ja-JP'): Promise<void>;
 }
 ```
 

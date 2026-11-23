@@ -34,7 +34,7 @@ The setup page puts tool configuration and data preview together. Expand **View 
 
 Select an existing annotation item to edit its label and available fields. Use the tool controls on the left to add the shapes or attributes your task needs. An image task might use boxes for vehicles and points for landmarks. Start with only the labels you plan to use.
 
-For an existing task, open its name in **Task management**, then choose **Configure annotation tools**. Edits are saved to that task. Changing the interface language keeps your own label names and task names as you entered them.
+For an existing task, open its name in **Task management**, then choose **Configure annotation tools**. Edits are saved to that task. The language selector supports English (default), Chinese, German, and Japanese. Changing the interface language keeps your own label names and task names as you entered them.
 
 ## Make and save an annotation
 

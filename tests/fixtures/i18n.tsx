@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   getLanguage,
+  normalizeLanguage,
   LANGUAGE_KEY,
   setLanguage,
   t,
@@ -37,10 +38,20 @@ function Probe() {
 const root = createRoot(document.getElementById('root')!);
 root.render(<Probe />);
 Object.assign(window, {
-  i18nTest: { getLanguage, LANGUAGE_KEY, unmount: () => root.unmount() },
+  i18nTest: {
+    getLanguage,
+    normalizeLanguage,
+    setLanguage,
+    t,
+    LANGUAGE_KEY,
+    unmount: () => root.unmount(),
+  },
 });
 export interface I18nHarness {
   getLanguage: () => string;
+  normalizeLanguage: (language: string) => string;
+  setLanguage: typeof setLanguage;
+  t: typeof t;
   LANGUAGE_KEY: string;
   unmount: () => void;
 }

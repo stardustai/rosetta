@@ -1116,7 +1116,7 @@ packages:
     os: [win32]
 
   '@stardustai/annotation-client@file:vendor/stardustai-annotation-client-0.1.0.tgz':
-    resolution: {integrity: sha512-k4Uc5rZW9pC1I6sW6il92//31nqCo3WwzQjtTcWT+ygS/mUnaL/L+aYZ8C1L8epRivVuR80MbAeYr5CB79sd/Q==, tarball: file:vendor/stardustai-annotation-client-0.1.0.tgz}
+    resolution: {integrity: sha512-lR3DPkJ8O2o1v12T+iiqObMoOsLBH7VAbFKXaHdhNKbghfmz63EfQB67//hS42MRGpoLaclxfe4qoKe8UYZAzw==, tarball: file:vendor/stardustai-annotation-client-0.1.0.tgz}
     version: 0.1.0
     peerDependencies:
       antd: ^5.23.0

@@ -1,11 +1,25 @@
 import i18next from 'i18next';
 import { useSyncExternalStore } from 'react';
 import { zhCN } from './messages';
+import deDE from './locales/de-DE.json';
+import jaJP from './locales/ja-JP.json';
 
-export type Language = 'en-US' | 'zh-CN';
+export type Language = 'en-US' | 'zh-CN' | 'de-DE' | 'ja-JP';
+export const languages: Language[] = ['en-US', 'zh-CN', 'de-DE', 'ja-JP'];
+const translations: Partial<Record<Language, Record<string, string>>> = {
+  'zh-CN': zhCN,
+  'de-DE': deDE,
+  'ja-JP': jaJP,
+};
 export const LANGUAGE_KEY = 'rosetta.language';
-export const normalizeLanguage = (value?: string | null): Language =>
-  /^zh(?:-|$)/i.test(value || '') ? 'zh-CN' : 'en-US';
+export const normalizeLanguage = (value?: string | null): Language => {
+  const code = (value || '').split(/[-_]/)[0].toLowerCase();
+  return (
+    ({ zh: 'zh-CN', de: 'de-DE', ja: 'ja-JP' } as Record<string, Language>)[
+      code
+    ] || 'en-US'
+  );
+};
 const english = Object.fromEntries(Object.keys(zhCN).map((key) => [key, key]));
 Object.assign(english, {
   '{{count}} records_one': '{{count}} record',
@@ -32,7 +46,7 @@ if (!i18next.isInitialized) {
   void i18next.init({
     lng: savedLanguage(),
     fallbackLng: 'en-US',
-    supportedLngs: ['en-US', 'zh-CN'],
+    supportedLngs: languages,
     keySeparator: false,
     nsSeparator: false,
     initImmediate: false,
@@ -54,16 +68,30 @@ i18next.addResourceBundle(
   true,
   true,
 );
+for (const [language, messages] of Object.entries({
+  'de-DE': deDE,
+  'ja-JP': jaJP,
+})) {
+  const aliases = Object.fromEntries(
+    Object.entries(zhCN).map(([en, zh]) => [zh, messages[en] || en]),
+  );
+  i18next.addResourceBundle(
+    language,
+    'translation',
+    { ...aliases, ...messages },
+    true,
+    true,
+  );
+}
 export const getLanguage = (): Language => normalizeLanguage(i18next.language);
 export function t(
   key: string | string[],
   options?: Record<string, any> | string,
 ): string {
   const source = Array.isArray(key) ? key[0] : key;
+  const englishSource = legacyEnglish[source] || source;
   const fallback =
-    getLanguage() === 'zh-CN'
-      ? zhCN[source] || source
-      : legacyEnglish[source] || source;
+    translations[getLanguage()]?.[englishSource] || englishSource;
   const settings = typeof options === 'object' ? options : {};
   const value = i18next.t(source, { defaultValue: fallback, ...settings });
   return typeof value === 'string' && value.trim() ? value : fallback;

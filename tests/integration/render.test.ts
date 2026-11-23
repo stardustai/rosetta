@@ -296,21 +296,23 @@ test(
         new URL(annotation.frame.src).searchParams.get('lng'),
         'en-US',
       );
-      await window.hostTest.setLanguage('zh-CN');
-      await until(
-        () => annotation.latestLanguage() === 'zh-CN',
-        'Locale updates should reach the connected editor',
-      );
-      assert.equal(
-        document.querySelector('iframe'),
-        annotation.frame,
-        'Changing language must preserve the iframe',
-      );
-      assert.equal(
-        annotation.updates(),
-        0,
-        'A locale change must not reset the active input',
-      );
+      for (const language of ['zh-CN', 'de-DE', 'ja-JP']) {
+        await window.hostTest.setLanguage(language);
+        await until(
+          () => annotation.latestLanguage() === language,
+          'Locale updates should reach the connected editor',
+        );
+        assert.equal(
+          document.querySelector('iframe'),
+          annotation.frame,
+          'Changing language must preserve the iframe',
+        );
+        assert.equal(
+          annotation.updates(),
+          0,
+          'A locale change must not reset the active input',
+        );
+      }
       await window.hostTest.setLanguage('en-US');
       await until(
         () => annotation.latestLanguage() === 'en-US',

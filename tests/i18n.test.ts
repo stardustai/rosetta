@@ -17,7 +17,7 @@ test('English is the first-run default; switching languages preserves edits, upd
     jsx: 'automatic',
     define: { 'process.env.NODE_ENV': '"test"' },
   });
-  for (const initial of [null, 'zh-CN']) {
+  for (const initial of [null, 'zh-CN', 'de-DE', 'ja-JP']) {
     const { dom, window, document, until, errors } = createDOMFixture(
       'https://i18n.example',
     );
@@ -32,9 +32,15 @@ test('English is the first-run default; switching languages preserves edits, upd
       assert.equal(document.documentElement.lang, initial || 'en-US');
       assert.equal(
         document.querySelector('h1')!.textContent,
-        initial ? '任务管理' : 'Task management',
+        (
+          {
+            'zh-CN': '任务管理',
+            'de-DE': 'Aufgabenverwaltung',
+            'ja-JP': 'タスク管理',
+          } as Record<string, string>
+        )[initial || ''] || 'Task management',
       );
-      if (initial) document.querySelector('button')!.click();
+      if (initial) await browser.i18nTest.setLanguage('en-US');
       await until(
         () => document.querySelector('h1')?.textContent === 'Task management',
         'English should render',
@@ -78,6 +84,49 @@ test('English is the first-run default; switching languages preserves edits, upd
       );
       assert.equal(input.value, '用户自定义 task');
       assert.equal(document.documentElement.lang, 'en-US');
+      for (const [language, heading, title] of [
+        ['de-DE', 'Aufgabenverwaltung', 'Eigenständiges Annotationswerkzeug'],
+        ['ja-JP', 'タスク管理', '独立型アノテーションツール'],
+        ['en-US', 'Task management', 'Standalone annotation tool'],
+      ] as const) {
+        await browser.i18nTest.setLanguage(language);
+        await until(
+          () => document.querySelector('h1')?.textContent === heading,
+          'All supported languages should update without losing edits',
+        );
+        assert.equal(document.title, title);
+        assert.equal(document.documentElement.lang, language);
+        assert.equal(document.querySelector('input'), input);
+        assert.equal(input.value, '用户自定义 task');
+        assert.equal(
+          window.localStorage.getItem(browser.i18nTest.LANGUAGE_KEY),
+          language,
+        );
+      }
+      await browser.i18nTest.setLanguage('de-DE');
+      assert.equal(
+        browser.i18nTest.t('{{count}} records', { count: 1 }),
+        '1 Datensatz',
+      );
+      assert.equal(
+        browser.i18nTest.t('{{count}} records', { count: 2 }),
+        '2 Datensätze',
+      );
+      await browser.i18nTest.setLanguage('ja-JP');
+      assert.equal(
+        browser.i18nTest.t('{{count}} records', { count: 2 }),
+        '2 件',
+      );
+      for (const [variant, language] of [
+        ['de', 'de-DE'],
+        ['de-AT', 'de-DE'],
+        ['DE_de', 'de-DE'],
+        ['ja', 'ja-JP'],
+        ['ja_JP', 'ja-JP'],
+        ['unknown', 'en-US'],
+      ]) {
+        assert.equal(browser.i18nTest.normalizeLanguage(variant), language);
+      }
       assert.deepEqual(errors, []);
     } finally {
       browser.i18nTest?.unmount();

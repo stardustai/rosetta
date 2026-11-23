@@ -1,6 +1,8 @@
 import { App, Select, ConfigProvider, theme } from 'antd';
 import enUS from 'antd/locale/en_US';
 import zhCN from 'antd/locale/zh_CN';
+import deDE from 'antd/locale/de_DE';
+import jaJP from 'antd/locale/ja_JP';
 import { useEffect, type PropsWithChildren } from 'react';
 import {
   getLanguage,
@@ -9,6 +11,13 @@ import {
   useLanguage,
   type Language,
 } from './i18n';
+
+const componentLocales = {
+  'en-US': enUS,
+  'zh-CN': zhCN,
+  'de-DE': deDE,
+  'ja-JP': jaJP,
+};
 
 export function LanguageSelect() {
   const language = useLanguage();
@@ -20,6 +29,8 @@ export function LanguageSelect() {
       options={[
         { value: 'en-US', label: 'English' },
         { value: 'zh-CN', label: '中文' },
+        { value: 'de-DE', label: 'Deutsch' },
+        { value: 'ja-JP', label: '日本語' },
       ]}
       style={{ minWidth: 112 }}
     />
@@ -56,7 +67,7 @@ export default function LanguageProvider({ children }: PropsWithChildren) {
     ConfigProvider.config({
       holderRender: (node) => (
         <ConfigProvider
-          locale={getLanguage() === 'zh-CN' ? zhCN : enUS}
+          locale={componentLocales[getLanguage()]}
           theme={applicationTheme}
         >
           {node}
@@ -66,7 +77,7 @@ export default function LanguageProvider({ children }: PropsWithChildren) {
   }, [language]);
   return (
     <ConfigProvider
-      locale={language === 'zh-CN' ? zhCN : enUS}
+      locale={componentLocales[language]}
       theme={applicationTheme}
     >
       <App style={{ width: '100%', height: '100%' }}>{children}</App>

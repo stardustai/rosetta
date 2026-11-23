@@ -69,7 +69,9 @@ export const quickExamples: QuickExample[] = [
     record: () => ({
       attachmentType: 'TEXT' as DataRecordType.Text,
       attachment: asset(
-        getLanguage() === 'zh-CN' ? 'entities.zh-CN.txt' : 'entities.txt',
+        getLanguage() === 'en-US'
+          ? 'entities.txt'
+          : `entities.${getLanguage()}.txt`,
       ),
       metadata: { title: t('travel-record.txt') },
     }),
