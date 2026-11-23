@@ -1,6 +1,6 @@
 # Rosetta Annotation Tool
 
-**English** | [简体中文](README.zh-CN.md)
+**English** | [简体中文](README.zh-CN.md) | [Deutsch](README.de-DE.md) | [日本語](README.ja-JP.md)
 
 A browser workspace for annotating images, point clouds, video, audio, and text. Import files, configure labels, keep track of tasks, and export the saved results as JSON.
 
@@ -12,7 +12,7 @@ The workspace stores tasks and local files in your browser. The annotation edito
 
 Use a current desktop browser. Keep your original files and download your results when you finish a batch. Clearing this site's browser storage removes its local tasks, files, and saved connections. Opening the site in another browser does not bring those tasks with you.
 
-The interface opens in English. Use the selector in the top-right corner to switch to Chinese. The annotation page has the same selector at the top-left. The setting is remembered in this browser and applied to the embedded editor.
+The interface opens in English. Use the selector in the top-right corner to switch to Chinese, German, or Japanese. The annotation page has the same selector at the top-left. The setting is remembered in this browser and applied to the embedded editor.
 
 ## Try the included image example
 
@@ -128,7 +128,7 @@ The credentials need list and read access. Bucket CORS must allow GET and HEAD f
 Install Node.js 22.13+ on the 22.x release line, or Node.js 24+, and [pnpm 12.21.0](https://pnpm.io/installation). The package manager version is pinned in `package.json`.
 
 ```sh
-git clone https://github.com/callzhang/rosetta.git
+git clone https://github.com/stardustai/rosetta.git
 cd rosetta
 pnpm install --frozen-lockfile
 cp .env.example .env.local

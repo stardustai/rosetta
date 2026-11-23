@@ -1,6 +1,6 @@
 # Rosetta 独立标注工具
 
-[English](README.md) | **简体中文**
+[English](README.md) | **简体中文** | [Deutsch](README.de-DE.md) | [日本語](README.ja-JP.md)
 
 界面默认使用英语，可随时切换中文、德语和日语。切换语言会保留未保存的标注和自定义标签。
 
@@ -14,7 +14,7 @@
 
 建议使用桌面版浏览器。原始文件请另外保留，完成一批数据后及时下载结果。清除本站的浏览器存储会删除本地任务、文件和已保存的连接；换一个浏览器打开，原来的任务也不会自动带过去。
 
-界面默认显示英语。点击页面右上角的语言选择框，可以切换中文。标注页的语言选择框在左上角。浏览器会记住选择，内嵌编辑器也会跟着切换。
+界面默认显示英语。点击页面右上角的语言选择框，可以切换中文、德语和日语。标注页的语言选择框在左上角。浏览器会记住选择，内嵌编辑器也会跟着切换。
 
 ## 用内置图片跑一遍
 
@@ -132,7 +132,7 @@ API 地址支持 `{taskId}`，例如 `https://example.com/api/tasks/{taskId}/ann
 先安装 [pnpm 12.21.0](https://pnpm.io/installation)。`package.json` 固定了包管理器版本，依赖版本由 `pnpm-lock.yaml` 记录。
 
 ```sh
-git clone https://github.com/callzhang/rosetta.git
+git clone https://github.com/stardustai/rosetta.git
 cd rosetta
 pnpm install --frozen-lockfile
 cp .env.example .env.local
