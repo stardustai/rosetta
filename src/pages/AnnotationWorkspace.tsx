@@ -5,7 +5,8 @@ import type {
 } from '@stardustai/annotation-client';
 import { RosettaAnnotation } from '../annotationService';
 import type { Ref } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import MorningStarSignIn from '../auth/MorningStarSignIn';
 import CloudConnectionForm from '../objectStorage/CloudConnectionForm';
 import {
   missingConnections,
@@ -24,6 +25,7 @@ export default function AnnotationWorkspace({
 }) {
   useLanguage();
   const [, setRevision] = useState(0);
+  const frameContainer = useRef<HTMLDivElement>(null);
   useEffect(
     () => subscribeConnections(() => setRevision((value) => value + 1)),
     [],
@@ -54,8 +56,15 @@ export default function AnnotationWorkspace({
       </div>
     );
   return (
-    <div className="cloud-annotation-editor flex-1 min-h-0 relative">
-      <RosettaAnnotation ref={editorRef} {...props} />
+    <div className="cloud-annotation-editor flex flex-col flex-1 min-h-0 relative">
+      <MorningStarSignIn
+        frame={() =>
+          frameContainer.current?.querySelector('iframe')?.contentWindow
+        }
+      />
+      <div ref={frameContainer} className="flex-1 min-h-0 relative">
+        <RosettaAnnotation ref={editorRef} {...props} />
+      </div>
     </div>
   );
 }

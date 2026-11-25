@@ -154,6 +154,8 @@ The [Pages workflow](.github/workflows/pages.yml) checks types, runs the unit an
 
 The frontend can be published before the annotation service is ready. It shows a connection notice in place of the editor until you configure the address. The API and annotation service are hosted separately. For iframe email authentication, use domains and cookie settings that support the API's SameSite requirements.
 
+Deployments with a compatible editor can enable [MorningStar sign-in](docs/iframe-integration.md#morningstar-sign-in) from the annotation workspace.
+
 The workflow handles the `/repository/` base path and direct links to app routes. For another static host, set `VITE_BASE_PATH` as needed and serve `index.html` for app routes.
 
 ## When something does not open

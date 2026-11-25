@@ -1,5 +1,10 @@
 // English source messages and their Simplified Chinese translations.
 export const zhCN: Record<string, string> = {
+  'Sign in with MorningStar': '使用 MorningStar 登录',
+  'MorningStar sign-in confirmed': '已确认 MorningStar 登录',
+  'MorningStar sign-in could not be confirmed. Try again.': '未能确认 MorningStar 登录，请重试',
+  'The sign-in window closed before sign-in finished.': '登录完成前窗口已关闭',
+  'Allow pop-ups to sign in with MorningStar.': '请允许弹出窗口后使用 MorningStar 登录',
   'Annotation service is not connected': '尚未连接标注服务',
   'You can import and manage tasks here. Ask the site administrator to connect the annotation service before editing annotations.':
     '你可以导入数据和管理任务。开始标注前，请联系站点管理员连接标注服务。',
