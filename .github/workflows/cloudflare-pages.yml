@@ -31,8 +31,8 @@ jobs:
         env:
           VITE_BASE_PATH: /
           VITE_ANNOTATION_URL: ${{ vars.VITE_ANNOTATION_URL }}
-      - name: Publish to rosetta-annotation
-        run: npx --yes wrangler@4.161.0 pages deploy dist --project-name rosetta-annotation --branch main
+      - name: Publish to stardust-rosetta
+        run: npx --yes wrangler@4.161.0 pages deploy dist --project-name stardust-rosetta --branch main
         env:
-          CLOUDFLARE_ACCOUNT_ID: deaed7a71411fa4b518d82ba117e155a
+          CLOUDFLARE_ACCOUNT_ID: 32040609845cecfd444552c934feb7fb
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
