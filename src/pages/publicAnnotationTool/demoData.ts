@@ -1,5 +1,5 @@
 import { t } from '../../i18n';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../../annotation/schema';
 import i18next from 'i18next';
 import { v4 as uuid } from 'uuid';
 

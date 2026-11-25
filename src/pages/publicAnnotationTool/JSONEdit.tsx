@@ -1,6 +1,6 @@
 import { useLanguage } from '../../i18n';
 import { json } from '@codemirror/lang-json';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../../annotation/schema';
 import { atomone } from '@uiw/codemirror-theme-atomone';
 import CodeMirror from '@uiw/react-codemirror';
 import type { ReactCodeMirrorRef } from '@uiw/react-codemirror';

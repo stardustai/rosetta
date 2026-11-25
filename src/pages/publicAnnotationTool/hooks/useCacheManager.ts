@@ -1,5 +1,6 @@
 import { t } from '../../../i18n';
-import { fetchResourceURL, message } from '@stardustai/annotation-client';
+import { fetchResourceURL } from '../../../annotation/configuration';
+import { message } from 'antd';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CacheController } from '../../../cache/controller';
 import {

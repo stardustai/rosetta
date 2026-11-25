@@ -5,8 +5,7 @@ import {
   QuestionCircleOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import { Button, message } from '@stardustai/annotation-client';
-import { Typography } from 'antd';
+import { Button, Typography, message } from 'antd';
 import { useRef } from 'react';
 import { fromFileList } from '../../../localData/files';
 import type { LocalFile } from '../../../localData/files';

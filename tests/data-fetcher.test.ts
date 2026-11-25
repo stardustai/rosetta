@@ -1,7 +1,7 @@
 import type {
   DataRecordType,
   PublicAnnotationInput,
-} from '@stardustai/annotation-client';
+} from '../src/annotation/schema';
 import { build } from 'esbuild';
 import * as indexedDB from 'fake-indexeddb';
 import type { DOMWindow } from 'jsdom';
@@ -34,8 +34,8 @@ test('data selection aborts obsolete downloads, reuses local cache and cancels o
     jsx: 'automatic',
     define: { 'process.env.NODE_ENV': '"test"' },
     alias: {
-      '@stardustai/annotation-client': fileURLToPath(
-        new URL('./fixtures/data-fetcher-sdk.ts', import.meta.url),
+      antd: fileURLToPath(
+        new URL('./fixtures/data-fetcher-messages.ts', import.meta.url),
       ),
     },
   });

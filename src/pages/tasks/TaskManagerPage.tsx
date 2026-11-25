@@ -4,14 +4,8 @@ import {
   PlayCircleOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import {
-  Button,
-  Link,
-  message,
-  useNavigate,
-  useSearchParams,
-} from '@stardustai/annotation-client';
-import { Alert, Dropdown, Input, Modal, Table, Tabs } from 'antd';
+import { Alert, Button, Dropdown, Input, Modal, Table, Tabs, message } from 'antd';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ExportTaskModal from '../../exports/ExportTaskModal';
 import { openSavedAnnotation } from '../../localData/openAnnotation';

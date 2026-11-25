@@ -10,14 +10,8 @@ import {
   SettingOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons';
-import {
-  Button,
-  Link,
-  message,
-  useLocation,
-  useNavigate,
-} from '@stardustai/annotation-client';
-import { Breadcrumb } from 'antd';
+import { Breadcrumb, Button, message } from 'antd';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import type { MouseEvent, ReactNode } from 'react';
 import { useState } from 'react';
 import logo from '../../assets/logo2.png';

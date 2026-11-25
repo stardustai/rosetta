@@ -1,8 +1,4 @@
-import type {
-  DataRecord,
-  Operator,
-  TaskResult,
-} from '@stardustai/annotation-client';
+import type { DataRecord, Operator, TaskResult } from '../annotation/schema';
 
 export const getRecordOperators = (record: DataRecord, fallback: Operator[]) =>
   record.metadata?.preprocessedData?.operators ?? fallback;

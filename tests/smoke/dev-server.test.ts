@@ -10,10 +10,10 @@ async function get(path: string) {
   return response;
 }
 
-test('the live public host loads the iframe client and has no login proxy', async () => {
+test('the live public host loads its iframe configuration and has no login proxy', async () => {
   assert.match(await (await get('/annotationTool')).text(), /\/src\/main.tsx/);
   const source = await (await get('/src/main.tsx')).text();
-  assert.match(source, /annotation-client/);
+  assert.match(source, /\/src\/annotation\/configuration\.ts/);
   assert.doesNotMatch(source, /AuthRoot|LicenseRoot|rosetta-annotation/);
   assert.match(
     (await get('/api/health')).headers.get('content-type') || '',

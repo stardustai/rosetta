@@ -9,7 +9,9 @@ import { build } from 'vite';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
-test('host route providers and consumers use the public iframe-client context', async () => {
+test('host route providers and consumers use the same direct Router dependency', async () => {
+  const entry = await readFile(resolve(root, 'src/main.tsx'), 'utf8');
+  assert.match(entry, /import \{[^}]*BrowserRouter[^}]*\} from 'react-router-dom';/);
   async function check(directory: string) {
     for (const entry of await readdir(directory, { withFileTypes: true })) {
       const path = join(directory, entry.name);
@@ -17,10 +19,10 @@ test('host route providers and consumers use the public iframe-client context', 
       else if (/\.[jt]sx?$/.test(entry.name)) {
         const code = await readFile(path, 'utf8');
         assert.ok(
-          !/(?:from\s*|import\s*\()(['"])react-router(?:-dom)?(?:\/[^'"]*)?\1/.test(
+          !/(?:from\s*|import\s*\()(['"])(?:react-router|react-router-dom\/[^'"]*)\1/.test(
             code,
           ),
-          `${path}: import routing components and hooks from @stardustai/annotation-client, which owns the Router context`,
+          `${path}: import routing components and hooks from react-router-dom`,
         );
       }
     }
@@ -32,12 +34,12 @@ test('the production entry mounts without a development HMR context', async () =
   const directory = await mkdtemp(join(tmpdir(), 'annotation-startup-'));
   // Compile the actual entry with production replacements and isolated DOM boundaries.
   const modules = {
-    sdk: `
-      export const BrowserRouter = 'BrowserRouter', RosettaProvider = 'RosettaProvider',
+    router: `
+      export const BrowserRouter = 'BrowserRouter',
         Routes = 'Routes', Route = 'Route', Navigate = 'Navigate';
       export function useLocation() { return { search: globalThis.state.search || '' }; }
-      export function configureRosetta(options) { globalThis.state.configuration = options; }
     `,
+    configuration: `export function configureRosetta(options) { globalThis.state.configuration = options; }`,
     reactDOM: `export function createRoot(node) { return { render(tree) { globalThis.state.mounts.push({ node, tree }); } }; }`,
     jsx: `export const Fragment = 'Fragment'; export function jsx(type, props) { return { type, props }; } export const jsxs = jsx;`,
     i18n: `export const t = (key) => key;`,
@@ -47,7 +49,8 @@ test('the production entry mounts without a development HMR context', async () =
     style: `export {};`,
   };
   const aliases = new Map([
-    ['@stardustai/annotation-client', 'sdk'],
+    ['react-router-dom', 'router'],
+    ['./annotation/configuration', 'configuration'],
     ['react-dom/client', 'reactDOM'],
     ['react/jsx-runtime', 'jsx'],
     ['./localData/resources', 'resources'],

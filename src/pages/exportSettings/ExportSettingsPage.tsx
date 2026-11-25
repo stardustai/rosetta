@@ -6,8 +6,8 @@ import {
   LinkOutlined,
   PlusOutlined,
 } from '@ant-design/icons';
-import { Button, message, useNavigate } from '@stardustai/annotation-client';
-import { Alert, Form, Input, Segmented, Select, Spin } from 'antd';
+import { Alert, Button, Form, Input, Segmented, Select, Spin, message } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { saveExportSettings } from '../../exports/settings';
 import type { ExportMethod, ExportSettings } from '../../exports/types';

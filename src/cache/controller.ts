@@ -1,5 +1,5 @@
 import { t } from '../i18n';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../annotation/schema';
 import { downloadAnnotationInput } from './download';
 import { saveCachedInput } from './storage';
 import type { CacheItem } from './types';

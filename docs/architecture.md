@@ -8,7 +8,7 @@ The workspace uses pnpm 12.21.0 and Tailwind CSS 4.3.5. `package.json` pins the 
 | ------------------------------------------------------------- | ---------------------------------------------- |
 | Layout, spacing, typography, breakpoints, and theme utilities | Tailwind CSS through `@tailwindcss/vite`       |
 | Forms, tables, dialogs, and menus                             | Ant Design                                     |
-| Task routes and navigation                                    | React Router from the public annotation client |
+| Task routes and navigation                                    | React Router |
 | Async request ordering and cancellation                       | `ahooks/useRequest`                            |
 | Remote input requests                                         | ky                                             |
 | Translation resources and interpolation                       | i18next                                        |
@@ -28,7 +28,7 @@ Keep responsive rules with the component they affect. Check the task list, impor
 
 ## Application rules
 
-Task migrations, IndexedDB transactions, export destinations, iframe save receipts, and annotation formats encode this application's data contract. Change those rules with tests for existing saved data. The public app consumes the client archive in `vendor/`; it does not import the private renderer's source.
+Task migrations, IndexedDB transactions, export destinations, iframe save receipts, and annotation formats encode this application's data contract. Change those rules with tests for existing saved data. The iframe component and host transport live in `src/annotation`. The [iframe guide](iframe-integration.md) describes the versioned contract and its generated files.
 
 The OBS and TOS axios override lives in `pnpm-workspace.yaml`. Its catalog entry supplies both the direct dependency and the SDK overrides. Keep the legacy TOS error-factory alias until the SDK removes that import.
 

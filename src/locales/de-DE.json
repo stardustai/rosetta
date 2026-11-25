@@ -14,6 +14,8 @@
   "Rosetta annotation workspace": "Rosetta-Annotationsbereich",
   "Annotation tool configuration": "Annotationswerkzeuge konfigurieren",
   "Algorithm assistance configuration": "Algorithmusunterstützung konfigurieren",
+  "The annotation service URL must use HTTP or HTTPS": "Die Annotationsdienst-URL muss HTTP oder HTTPS verwenden",
+  "The annotation page connection has closed": "Die Verbindung zur Annotationsseite ist geschlossen",
   "Language": "Sprache",
   "Cache failed": "Zwischenspeichern fehlgeschlagen",
   "The local cache index is invalid": "Der lokale Cache-Index ist ungültig",

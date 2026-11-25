@@ -1,5 +1,5 @@
 import { t } from '../i18n';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../annotation/schema';
 import type { DBSchema } from 'idb';
 import { openDB } from 'idb';
 import type { StorageSource } from '../objectStorage/types';

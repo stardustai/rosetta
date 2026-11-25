@@ -1,7 +1,7 @@
 import type {
   DataRecordType,
   PublicAnnotationInput,
-} from '@stardustai/annotation-client';
+} from '../src/annotation/schema';
 import 'fake-indexeddb/auto';
 import './offlineFixture';
 import { openDB } from 'idb';

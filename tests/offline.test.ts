@@ -1,6 +1,6 @@
 import 'fake-indexeddb/auto';
 import './offlineFixture';
-import type { DataRecordType } from '@stardustai/annotation-client';
+import type { DataRecordType } from '../src/annotation/schema';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { deliverExport } from '../src/exports/deliver';

@@ -4,8 +4,8 @@ import {
   MoreOutlined,
   PlusOutlined,
 } from '@ant-design/icons';
-import { Button, message, useNavigate } from '@stardustai/annotation-client';
-import { Alert, Dropdown, Input, Modal, Table, Tabs } from 'antd';
+import { Alert, Button, Dropdown, Input, Modal, Table, Tabs, message } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import {
   createStorageClient,

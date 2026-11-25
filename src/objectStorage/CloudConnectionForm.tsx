@@ -1,6 +1,5 @@
 import { useLanguage, t } from '../i18n';
-import { Button } from '@stardustai/annotation-client';
-import { Alert, Checkbox, Form, Input, Popconfirm, Select } from 'antd';
+import { Alert, Button, Checkbox, Form, Input, Popconfirm, Select } from 'antd';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createStorageClient, storageError } from './adapters';
 import { defaultEndpoint, normalizeConnection, publicSource } from './paths';

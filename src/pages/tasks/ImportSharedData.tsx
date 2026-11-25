@@ -1,7 +1,7 @@
 import { useLanguage, t } from '../../i18n';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
-import { Button, message, validateSchema } from '@stardustai/annotation-client';
-import { Alert } from 'antd';
+import type { PublicAnnotationInput } from '../../annotation/schema';
+import { Alert, Button, message } from 'antd';
+import { validateSchema } from '../../annotation/schema';
 import { useState } from 'react';
 import { tasksFromInput } from '../../localData/dataTasks';
 import { openSavedAnnotation } from '../../localData/openAnnotation';

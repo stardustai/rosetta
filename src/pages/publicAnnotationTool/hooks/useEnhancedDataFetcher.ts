@@ -1,6 +1,7 @@
 import { t } from '../../../i18n';
-import { fetchResourceURL, message } from '@stardustai/annotation-client';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import { fetchResourceURL } from '../../../annotation/configuration';
+import { message } from 'antd';
+import type { PublicAnnotationInput } from '../../../annotation/schema';
 import { useRequest } from 'ahooks';
 import { useCallback, useEffect, useRef } from 'react';
 import { downloadAnnotationInput } from '../../../cache/download';

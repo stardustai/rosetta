@@ -3,7 +3,7 @@ import { encode } from '@msgpack/msgpack';
 import type {
   DataRecordType,
   PublicAnnotationInput,
-} from '@stardustai/annotation-client';
+} from '../src/annotation/schema';
 import { get, set } from 'idb-keyval';
 import { JSDOM } from 'jsdom';
 import assert from 'node:assert/strict';

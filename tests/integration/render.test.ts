@@ -4,8 +4,8 @@ import type {
   FrameEditor,
   FrameHost,
   FrameInput,
-} from '@stardustai/annotation-client/protocol';
-import { FRAME_PROTOCOL } from '@stardustai/annotation-client/protocol';
+} from '../../src/annotation/contracts/frame-v1';
+import { FRAME_PROTOCOL } from '../../src/annotation/contracts/frame-v1';
 import { expose, wrap } from 'comlink';
 import type { Remote } from 'comlink';
 import { build } from 'vite';

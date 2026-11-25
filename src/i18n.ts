@@ -4,7 +4,9 @@ import { zhCN } from './messages';
 import deDE from './locales/de-DE.json';
 import jaJP from './locales/ja-JP.json';
 
-export type Language = 'en-US' | 'zh-CN' | 'de-DE' | 'ja-JP';
+import type { FrameLanguage } from './annotation/contracts/frame-v1';
+
+export type Language = FrameLanguage;
 export const languages: Language[] = ['en-US', 'zh-CN', 'de-DE', 'ja-JP'];
 const translations: Partial<Record<Language, Record<string, string>>> = {
   'zh-CN': zhCN,

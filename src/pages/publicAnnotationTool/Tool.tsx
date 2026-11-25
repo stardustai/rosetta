@@ -6,15 +6,10 @@ import {
   EyeInvisibleOutlined,
   EyeOutlined,
 } from '@ant-design/icons';
-import {
-  Button,
-  GlobalSpinner,
-  message,
-  useNavigate,
-  useSearchParams,
-} from '@stardustai/annotation-client';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
-import { Alert, Modal, Select, Tooltip } from 'antd';
+import { Alert, Button, Modal, Select, Tooltip, message } from 'antd';
+import { GlobalSpinner } from '../../annotation/GlobalSpinner';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import type { PublicAnnotationInput } from '../../annotation/schema';
 import { debounce } from 'lodash';
 import { reaction, toJS } from 'mobx';
 import { observer } from 'mobx-react';

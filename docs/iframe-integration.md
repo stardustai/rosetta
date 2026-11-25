@@ -1,50 +1,17 @@
-# Iframe language control
+# Iframe integration
 
-The host and editor use `en-US` (English), `zh-CN` (Simplified Chinese), `de-DE` (German), and `ja-JP` (Japanese). English is the default. Language updates travel through the existing origin-checked MessageChannel connection.
+[`EditorFrame.tsx`](../src/annotation/EditorFrame.tsx) renders the annotation, operator, and algorithm views. [`connectFrame.ts`](../src/annotation/connectFrame.ts) checks the iframe's origin, window, channel, and instance before opening the two MessagePorts. The same connection carries annotation data, files, draft recovery, and save callbacks.
 
-## Set an initial language
+[`frame-v1.ts`](../src/annotation/contracts/frame-v1.ts) is the checked-in copy of the `rosetta-frame-v1` protocol maintained in `annotation-api/apps/annotation/src/contracts`. The adjacent [schema directory](../src/annotation/schema/) contains the supported annotation types and validation code from Rosetta's pinned schema. Run `pnpm sync:annotation-contract /path/to/annotation-tool` from the private repository to regenerate both. A tool checkout can install and build using its own lockfile and these files.
 
-```tsx
-configureRosetta({
-  frameURL: 'https://annotation.example.com/',
-  language: 'en-US',
-});
+## Language
 
-<RosettaAnnotation input={input} language="en-US" />;
-```
+The host supports English, Simplified Chinese, German, and Japanese. The iframe component follows the tool's language by default. An explicit `language` prop takes precedence for that instance.
 
-The `language` prop takes precedence for that editor instance. If it is omitted, the client follows the shared i18next language. The host workspace's selector uses this shared instance.
-
-The initial iframe URL includes `lng=en-US`, `lng=zh-CN`, `lng=de-DE`, or `lng=ja-JP`. The same value is supplied in the first `FrameInput`:
-
-```ts
-interface FrameInput {
-  input: PublicAnnotationInput;
-  index: number;
-  view: 'annotation' | 'operators' | 'algorithms';
-  taskId: string;
-  language?: 'en-US' | 'zh-CN' | 'de-DE' | 'ja-JP';
-}
-```
-
-## Apply a live update
-
-The editor exposes a separate method:
-
-```ts
-interface FrameEditor {
-  setLanguage?(language: 'en-US' | 'zh-CN' | 'de-DE' | 'ja-JP'): Promise<void>;
-}
-```
-
-The client calls this method when its selected language changes. It keeps the same iframe and input. A language update must update translations and component locales without recreating the annotation store. Do not route locale-only updates through `updateInput`; older editors reset their active model in that method.
-
-The annotation service in `packages/rosetta-annotation` implements the method, restores its UI translation resources, refreshes translated observer components, and updates its frame controls. Its authentication requests send the selected locale as `Accept-Language`.
-
-Older editors can omit `setLanguage`. They keep their connection, but live language control is unavailable until their service is updated.
+The host adds `lng` to the initial iframe URL and sends the locale in `FrameInput.language`. Once connected, the host calls `FrameEditor.setLanguage` for language-only updates so the active input and draft stay open. The private annotation app currently displays English and Simplified Chinese. It falls back to English for German and Japanese.
 
 ## Deployment
 
-Set `VITE_ANNOTATION_URL` before building the frontend when the service is available. Until then, production builds show a connection notice in place of the editor.
+Set `VITE_ANNOTATION_URL` when building the tool. A build without this setting displays a connection notice where the editor would appear.
 
-Add the frontend's origin to the annotation service's `VITE_HOST_ORIGINS`. The connection validates the parent origin, channel, and iframe instance; language control uses that connection rather than an unrestricted window-message listener.
+Add the tool's origin to the private annotation app's `VITE_HOST_ORIGINS`. For authentication and save reporting, configure the annotation site to serve its API under the same origin.

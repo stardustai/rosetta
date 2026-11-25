@@ -1,4 +1,4 @@
-import * as client from '@stardustai/annotation-client';
+import * as frame from './annotation/EditorFrame';
 import { Alert } from 'antd';
 import { forwardRef, type ComponentProps } from 'react';
 import { t, useLanguage } from './i18n';
@@ -19,22 +19,22 @@ function ServiceNotice() {
   );
 }
 export const RosettaAnnotation = forwardRef<
-  client.RosettaAnnotationHandle,
-  client.RosettaAnnotationProps
+  frame.RosettaAnnotationHandle,
+  frame.RosettaAnnotationProps
 >((props, ref) =>
   configured ? (
-    <client.RosettaAnnotation {...props} ref={ref} />
+    <frame.RosettaAnnotation {...props} ref={ref} />
   ) : (
     <ServiceNotice />
   ),
 );
 export function OperatorsEditor(
-  props: ComponentProps<typeof client.OperatorsEditor>,
+  props: ComponentProps<typeof frame.OperatorsEditor>,
 ) {
-  return configured ? <client.OperatorsEditor {...props} /> : <ServiceNotice />;
+  return configured ? <frame.OperatorsEditor {...props} /> : <ServiceNotice />;
 }
 export function AlgorithmEditor(
-  props: ComponentProps<typeof client.AlgorithmEditor>,
+  props: ComponentProps<typeof frame.AlgorithmEditor>,
 ) {
-  return configured ? <client.AlgorithmEditor {...props} /> : <ServiceNotice />;
+  return configured ? <frame.AlgorithmEditor {...props} /> : <ServiceNotice />;
 }

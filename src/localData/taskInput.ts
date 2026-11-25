@@ -1,7 +1,4 @@
-import type {
-  DataRecord,
-  PublicAnnotationInput,
-} from '@stardustai/annotation-client';
+import type { DataRecord, PublicAnnotationInput } from '../annotation/schema';
 import { sessionRecords } from './sessionInfo';
 import { getRecordOperators, getRecordTaskResult } from './recordPreprocessing';
 

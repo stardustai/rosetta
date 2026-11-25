@@ -182,7 +182,7 @@ pnpm run build
 
 Die Ausgabe liegt in `dist/`. Bei laufendem Entwicklungsserver prüft `pnpm run test:server` den Seiteneinstieg und die Beispieldateien.
 
-Die Oberfläche verwendet englische Nachrichtenschlüssel aus `src/messages.ts`; die neuen Sprachkataloge liegen in `src/locales/`. Die [iframe-Dokumentation](docs/iframe-integration.md) beschreibt die anfängliche und laufende Sprachsteuerung. Das öffentliche Clientarchiv liegt in `vendor/`.
+Die Oberfläche verwendet englische Nachrichtenschlüssel aus `src/messages.ts`; die neuen Sprachkataloge liegen in `src/locales/`. Die [iframe-Dokumentation](docs/iframe-integration.md) beschreibt die anfängliche und laufende Sprachsteuerung. Die iframe-Komponente und der versionierte Datenvertrag liegen in [`src/annotation`](src/annotation/).
 
 Die OBS- und TOS-SDKs verwenden axios 0.35.0 über gezielte Overrides in `pnpm-workspace.yaml`. TOS importiert noch die entfernte Factory `createError`; der Alias in `vite.config.ts` stellt sie mit dem öffentlichen Typ `AxiosError` bereit. Der Transporttest prüft beide echten Browser-SDKs gegen einen lokalen HTTP-Server: signierte Anfragen, Seitennavigation, JSON-Uploads und Zugriffsfehler. Behalten Sie diesen Alias bei axios-Updates bei, bis TOS den alten Import entfernt.
 

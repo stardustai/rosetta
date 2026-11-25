@@ -1,5 +1,5 @@
 import { useLanguage, t } from '../../i18n';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../../annotation/schema';
 import { Spin } from 'antd';
 import i18next from 'i18next';
 import { useEffect, useRef, useState } from 'react';

@@ -1,4 +1,4 @@
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../../src/annotation/schema';
 
 // Older published point-cloud examples use matrix time frames and omit notes.
 // Keep that protocol here; rebuilding it as a new-schema empty task hides

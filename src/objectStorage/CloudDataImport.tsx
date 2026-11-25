@@ -5,8 +5,8 @@ import {
   FileOutlined,
   FolderOutlined,
 } from '@ant-design/icons';
-import { Button, message, validateSchema } from '@stardustai/annotation-client';
-import { Alert, Checkbox, Input, Modal, Table } from 'antd';
+import { Alert, Button, Checkbox, Input, Modal, Table, message } from 'antd';
+import { validateSchema } from '../annotation/schema';
 import { useEffect, useRef, useState } from 'react';
 import { formatSize } from '../localData/files';
 import type { PublicAnnotationToolStore } from '../pages/publicAnnotationTool/PublicAnnotationToolStore';

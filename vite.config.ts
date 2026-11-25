@@ -41,7 +41,8 @@ export default defineConfig(({ mode }) => ({
     entries: ['index.html'],
     esbuildOptions: { target: 'es2022' },
     include: [
-      '@stardustai/annotation-client',
+      'comlink',
+      'react-router-dom',
       'react',
       'react/jsx-runtime',
       'react-dom',

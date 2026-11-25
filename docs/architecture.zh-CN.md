@@ -8,7 +8,7 @@
 | ------------------------------------ | -------------------------------------- |
 | 布局、间距、字体、响应式和主题工具类 | Tailwind CSS，接入 `@tailwindcss/vite` |
 | 表单、表格、弹窗和菜单               | Ant Design                             |
-| 任务路由                             | 公开标注客户端中的 React Router        |
+| 任务路由                             | React Router        |
 | 异步请求的顺序和取消                 | `ahooks/useRequest`                    |
 | 远程数据请求                         | ky                                     |
 | 翻译资源和插值                       | i18next                                |
@@ -28,7 +28,7 @@
 
 ## 业务规则
 
-任务迁移、IndexedDB 事务、导出目标、iframe 保存回执和标注格式属于本项目的数据约定。修改时需要验证已有数据。公开前端使用 `vendor/` 中的客户端安装包，不直接引用私有渲染器源码。
+任务迁移、IndexedDB 事务、导出目标、iframe 保存回执和标注格式属于本项目的数据约定。修改时需要验证已有数据。iframe 组件和宿主通信位于 `src/annotation`。[iframe 接入说明](iframe-integration.md)介绍了协议版本和生成文件。
 
 OBS、TOS 的 axios 覆盖位于 `pnpm-workspace.yaml`，catalog 统一提供直接依赖和 SDK 覆盖版本。TOS 移除旧导入前，需要保留错误工厂的兼容别名。
 

@@ -1,19 +1,12 @@
 import { LanguageSelect } from '../LanguageProvider';
 import { useLanguage, getLanguage, t } from '../i18n';
 import { ArrowLeftOutlined, DownloadOutlined } from '@ant-design/icons';
-import type {
-  RosettaAnnotationDraft,
-  RosettaAnnotationHandle,
-  TaskParams,
-  TaskResult,
-} from '@stardustai/annotation-client';
-import {
-  Button,
-  GlobalSpinner,
-  message,
-  useNavigate,
-} from '@stardustai/annotation-client';
-import { Alert, Modal } from 'antd';
+import type { RosettaAnnotationDraft } from '../annotation/contracts/frame-v1';
+import type { RosettaAnnotationHandle } from '../annotation/EditorFrame';
+import type { TaskParams, TaskResult } from '../annotation/schema';
+import { Alert, Button, Modal, message } from 'antd';
+import { GlobalSpinner } from '../annotation/GlobalSpinner';
+import { useNavigate } from 'react-router-dom';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import ExportTaskModal from '../exports/ExportTaskModal';
 import type { AnnotationPreview } from '../localData/annotationPreview';

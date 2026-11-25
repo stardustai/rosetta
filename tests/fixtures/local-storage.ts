@@ -1,4 +1,4 @@
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../../src/annotation/schema';
 import { sessionRecords } from '../../src/localData/sessionInfo';
 import { assert, fixtureReport } from './report';
 import { openDB } from 'idb';

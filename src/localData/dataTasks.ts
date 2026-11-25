@@ -1,10 +1,7 @@
 import { t } from '../i18n';
-import type {
-  DataRecord,
-  PublicAnnotationInput,
-} from '@stardustai/annotation-client';
+import type { DataRecord, PublicAnnotationInput } from '../annotation/schema';
 import { kindFromRecord } from './recordKind';
-import type { Operator } from '@stardustai/annotation-client';
+import type { Operator } from '../annotation/schema';
 import { recordName, sessionRecords } from './sessionInfo';
 import type { NewTask } from './storage';
 import { filterTaskInput, inputResults } from './taskInput';

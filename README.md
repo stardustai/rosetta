@@ -180,7 +180,7 @@ pnpm run build
 
 Build output is written to `dist/`. With a local development server running, `pnpm run test:server` checks the entry point and example files.
 
-UI translations use English source messages in `src/messages.ts`. [Iframe integration](docs/iframe-integration.md) describes initial and live language control. The public iframe client archive is included in `vendor/`.
+UI translations use English source messages in `src/messages.ts`. The iframe host and versioned data contract live in [`src/annotation`](src/annotation/). Local and production builds use the checked-in protocol and schema. See [iframe integration](docs/iframe-integration.md) for language control and how to sync changes from `annotation-api`.
 
 The OBS and TOS SDKs use axios 0.35.0 through scoped pnpm overrides in `pnpm-workspace.yaml`. TOS still imports the removed `createError` factory; the Vite alias in `vite.config.ts` supplies that factory using the public `AxiosError` type. The storage transport test runs both real browser SDKs against a local HTTP server to check signed requests, pagination, JSON uploads, and access errors. Keep this alias when updating axios until TOS removes its legacy import.
 

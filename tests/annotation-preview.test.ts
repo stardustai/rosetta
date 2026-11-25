@@ -3,7 +3,7 @@ import './offlineFixture';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { openDB } from 'idb';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../src/annotation/schema';
 import {
   activateAnnotationPreview,
   checkpointAnnotationPreview,

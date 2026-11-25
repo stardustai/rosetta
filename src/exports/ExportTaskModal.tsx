@@ -1,6 +1,6 @@
 import { useLanguage, t } from '../i18n';
-import { Button, Link } from '@stardustai/annotation-client';
-import { Alert, Descriptions, Modal, Radio, Spin, Typography } from 'antd';
+import { Alert, Button, Descriptions, Modal, Radio, Spin, Typography } from 'antd';
+import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import type { SessionExport } from '../localData/export';
 import { prepareSessionExport } from '../localData/export';

@@ -5,10 +5,10 @@ import {
   migrateAnnotation,
   ProjectAlgorithm,
   PublicAnnotationInput,
-  RosettaAnnotationDraft,
   TaskParamVersion,
-  toJsRecursively,
-} from '@stardustai/annotation-client';
+} from '../../annotation/schema';
+import { RosettaAnnotationDraft } from '../../annotation/contracts/frame-v1';
+import { toJS as toJsRecursively } from 'mobx';
 import { debounce } from 'lodash';
 import {
   action,

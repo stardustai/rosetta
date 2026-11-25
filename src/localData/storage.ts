@@ -2,9 +2,9 @@ import { t } from '../i18n';
 import type {
   DataRecord,
   PublicAnnotationInput,
-  RosettaAnnotationDraft,
   TaskResult,
-} from '@stardustai/annotation-client';
+} from '../annotation/schema';
+import type { RosettaAnnotationDraft } from '../annotation/contracts/frame-v1';
 import type { IDBPTransaction } from 'idb';
 import { connectionProfiles } from '../objectStorage/registry';
 import type { StorageSource } from '../objectStorage/types';

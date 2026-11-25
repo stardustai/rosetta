@@ -182,7 +182,7 @@ pnpm run build
 
 出力先は `dist/` です。開発サーバーが動作していれば、`pnpm run test:server` でページの入口とサンプルファイルを確認できます。
 
-UI の翻訳キーは `src/messages.ts` の英文です。追加の言語カタログは `src/locales/` にあります。[iframe の接続ガイド](docs/iframe-integration.md) で、初期言語と実行中の切り替えを説明しています。公開 iframe クライアントのアーカイブは `vendor/` に含まれます。
+UI の翻訳キーは `src/messages.ts` の英文です。追加の言語カタログは `src/locales/` にあります。[iframe の接続ガイド](docs/iframe-integration.md) で、初期言語と実行中の切り替えを説明しています。iframe コンポーネントとバージョン付きのデータ定義は [`src/annotation`](src/annotation/) にあります。
 
 OBS と TOS の SDK は、`pnpm-workspace.yaml` の対象を限定した overrides により axios 0.35.0 を使います。TOS は削除済みの `createError` をまだ import するため、`vite.config.ts` の alias が公開型 `AxiosError` を使って補っています。ストレージの転送テストでは、両社の実際のブラウザー SDK をローカル HTTP サーバーへ接続し、署名付きリクエスト、ページング、JSON のアップロード、権限エラーを確認します。TOS 側で古い import がなくなるまで、axios 更新時もこの alias を残してください。
 

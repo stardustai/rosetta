@@ -1,5 +1,5 @@
 import { t } from '../i18n';
-import type { DataRecord } from '@stardustai/annotation-client';
+import type { DataRecord } from '../annotation/schema';
 
 export type LocalFile = { path: string; file: File };
 export type ResourceFile = { path: string; name: string; url: string };

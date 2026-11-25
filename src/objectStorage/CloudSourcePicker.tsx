@@ -1,6 +1,6 @@
 import { useLanguage, t } from '../i18n';
-import { Button, Link } from '@stardustai/annotation-client';
-import { Alert, Select, Spin } from 'antd';
+import { Alert, Button, Select, Spin } from 'antd';
+import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { createStorageClient, storageError } from './adapters';
 import type { ConnectedStorage } from './CloudConnectionForm';

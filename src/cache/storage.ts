@@ -1,6 +1,6 @@
 import { t } from '../i18n';
 import { decode, encode } from '@msgpack/msgpack';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../annotation/schema';
 import { wrap } from 'idb';
 import type { DBSchema, IDBPObjectStore } from 'idb';
 import { createStore, get } from 'idb-keyval';

@@ -7,7 +7,7 @@ import {
   TaskParams,
   TaskParamVersion,
   TaskResult,
-} from '@stardustai/annotation-client';
+} from '../../annotation/schema';
 
 export type PublicAnnotationTask = {
   taskParams: TaskParams;

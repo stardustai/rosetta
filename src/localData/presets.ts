@@ -1,14 +1,11 @@
 import { t } from '../i18n';
-import type {
-  Operator,
-  SlotSpecification,
-} from '@stardustai/annotation-client';
+import type { Operator, SlotSpecification } from '../annotation/schema';
 import {
   DEFAULT_LINE_STYLE,
   OperatorType,
   ProjectTypeEnum,
   SlotType,
-} from '@stardustai/annotation-client';
+} from '../annotation/schema';
 import type { DataKind } from './files';
 
 export { dataKindLabels, kindFromRecord } from './recordKind';

@@ -4,7 +4,7 @@ import type { DataNode } from 'antd/es/tree';
 import { observer } from 'mobx-react';
 import { useEffect, useRef, useState } from 'react';
 import type { DataFileNode } from '../../../localData/fileTree';
-import type { DataRecord } from '@stardustai/annotation-client';
+import type { DataRecord } from '../../../annotation/schema';
 import { buildFileTree } from '../../../localData/fileTree';
 import { dataKindLabels, kindFromRecord } from '../../../localData/presets';
 import type { PublicAnnotationToolStore } from '../PublicAnnotationToolStore';

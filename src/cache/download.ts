@@ -1,4 +1,4 @@
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../annotation/schema';
 import ky from 'ky';
 import type { Progress } from 'ky';
 

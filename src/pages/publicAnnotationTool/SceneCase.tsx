@@ -1,7 +1,7 @@
 import { useLanguage, t } from '../../i18n';
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, message, validateSchema } from '@stardustai/annotation-client';
-import { Upload } from 'antd';
+import { Button, Upload, message } from 'antd';
+import { validateSchema } from '../../annotation/schema';
 import { observer } from 'mobx-react';
 import {
   inputsFromJSON,

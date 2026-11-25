@@ -3,7 +3,7 @@ import type {
   DataRecord,
   DataRecordType,
   PublicAnnotationInput,
-} from '@stardustai/annotation-client';
+} from '../../annotation/schema';
 import type { DataKind } from '../../localData/files';
 import { createDefaultOperators } from '../../localData/presets';
 

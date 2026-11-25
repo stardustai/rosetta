@@ -184,7 +184,7 @@ pnpm run build
 
 构建产物在 `dist/`。本地开发服务运行时，可以用 `pnpm run test:server` 检查页面入口和示例文件。
 
-界面翻译使用 `src/messages.ts` 中的英文原文作为 key。[iframe 接入说明](docs/iframe-integration.md) 介绍初始化和实时语言控制；公开 iframe 客户端安装包位于 `vendor/`。
+界面翻译使用 `src/messages.ts` 中的英文原文作为 key。iframe 宿主和带版本的数据定义在 [`src/annotation`](src/annotation/)。本地和生产构建都使用仓库内已提交的协议和数据定义。语言切换及如何从 `annotation-api` 同步更新见 [iframe 接入说明](docs/iframe-integration.md)。
 
 OBS 和 TOS SDK 通过`pnpm-workspace.yaml` 中的定向 pnpm overrides 使用 axios 0.35.0。TOS 仍引用已删除的 `createError` 工厂，`vite.config.ts` 中的别名用公开的 `AxiosError` 类型补齐了这个接口。存储传输测试会运行两家真实的浏览器 SDK，通过本机 HTTP 服务检查签名请求、分页、JSON 上传和权限错误。TOS 移除旧引用前，更新 axios 时需要保留这个别名。
 

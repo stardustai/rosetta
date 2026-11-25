@@ -2,12 +2,12 @@ import LanguageProvider from './LanguageProvider';
 import { t } from './i18n';
 import {
   BrowserRouter,
-  configureRosetta,
   Navigate,
   Route,
   Routes,
   useLocation,
-} from '@stardustai/annotation-client';
+} from 'react-router-dom';
+import { configureRosetta } from './annotation/configuration';
 import { createRoot } from 'react-dom/client';
 import { resolveLocalResource } from './localData/resources';
 import {

@@ -1,8 +1,6 @@
 import { t } from '../i18n';
-import type {
-  PublicAnnotationInput,
-  RosettaAnnotationDraft,
-} from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../annotation/schema';
+import type { RosettaAnnotationDraft } from '../annotation/contracts/frame-v1';
 import type { LocalFile, LocalImport } from './files';
 import { buildLocalImport, localURL } from './files';
 import { planLocalTasks } from './batchTasks';

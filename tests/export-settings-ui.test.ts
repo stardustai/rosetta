@@ -22,7 +22,7 @@ test(
       storage: { sourceId: 'oss-fixture', prefix: 'results/' },
     };
     const mocks = {
-      sdk: `export { Button } from 'antd'; export const message = { success() {} }; export const useNavigate = () => () => {};`,
+      router: `export const useNavigate = () => () => {};`,
       layout: `export default function Layout({ children, footer }) { return <main>{children}<footer>{footer}</footer></main>; }`,
       settings: `export async function saveExportSettings(value) { globalThis.savedSettings = structuredClone(value); return value; }`,
       useSettings: `export const useExportSettings = () => ({ settings: ${JSON.stringify(
@@ -31,7 +31,7 @@ test(
       sources: `export const useSavedConnections = () => ({ sources: [{id: 'oss-fixture', name: 'Fixture', connection: {provider: 'oss', bucket: 'fixture', prefix: ''}}], loading: false, error: '' });`,
     };
     const targets = new Map([
-      ['@stardustai/annotation-client', 'sdk'],
+      ['react-router-dom', 'router'],
       ['../tasks/TaskLayout', 'layout'],
       ['../../exports/settings', 'settings'],
       ['../../exports/useExportSettings', 'useSettings'],

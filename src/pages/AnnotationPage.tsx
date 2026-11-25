@@ -7,20 +7,15 @@ import {
 } from '@ant-design/icons';
 import type {
   PublicAnnotationInput,
-  RosettaAnnotationDraft,
   TaskParams,
   TaskResult,
-} from '@stardustai/annotation-client';
-import {
-  Button,
-  fetchResourceURL,
-  GlobalSpinner,
-  message,
-  useLocation,
-  useNavigate,
-  validateSchema,
-} from '@stardustai/annotation-client';
-import { Alert, Dropdown, Modal } from 'antd';
+} from '../annotation/schema';
+import type { RosettaAnnotationDraft } from '../annotation/contracts/frame-v1';
+import { Alert, Button, Dropdown, Modal, message } from 'antd';
+import { fetchResourceURL } from '../annotation/configuration';
+import { GlobalSpinner } from '../annotation/GlobalSpinner';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { validateSchema } from '../annotation/schema';
 import { get } from 'idb-keyval';
 import { useCallback, useEffect, useState } from 'react';
 import ExportTaskModal from '../exports/ExportTaskModal';

@@ -1,8 +1,8 @@
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../../src/annotation/schema';
 import { createRoot } from 'react-dom/client';
 import { saveCachedInput } from '../../src/cache/storage';
 import { useEnhancedDataFetcher } from '../../src/pages/publicAnnotationTool/hooks/useEnhancedDataFetcher';
-import { message } from './data-fetcher-sdk';
+import { message } from './data-fetcher-messages';
 
 export interface DataFetcherHarness {
   state: () => ReturnType<typeof useEnhancedDataFetcher>;

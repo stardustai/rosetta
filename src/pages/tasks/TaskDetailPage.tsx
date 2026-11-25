@@ -4,14 +4,8 @@ import {
   PlayCircleOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import {
-  Button,
-  message,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from '@stardustai/annotation-client';
-import { Alert, Descriptions, Spin, Tree } from 'antd';
+import { Alert, Button, Descriptions, Spin, Tree, message } from 'antd';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import ExportTaskModal from '../../exports/ExportTaskModal';
 import { buildFileTree } from '../../localData/fileTree';

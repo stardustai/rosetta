@@ -2,10 +2,10 @@ import 'fake-indexeddb/auto';
 import './offlineFixture';
 import type {
   PublicAnnotationInput,
-  RosettaAnnotationDraft,
   TaskParamVersion,
   TaskResult,
-} from '@stardustai/annotation-client';
+} from '../src/annotation/schema';
+import type { RosettaAnnotationDraft } from '../src/annotation/contracts/frame-v1';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { database } from '../src/localData/database';

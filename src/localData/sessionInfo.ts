@@ -1,8 +1,5 @@
 import { t } from '../i18n';
-import type {
-  DataRecord,
-  PublicAnnotationInput,
-} from '@stardustai/annotation-client';
+import type { DataRecord, PublicAnnotationInput } from '../annotation/schema';
 import type { StorageSource } from '../objectStorage/types';
 
 export type TaskStatus = 'draft' | 'pending' | 'in_progress' | 'completed';

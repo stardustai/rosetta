@@ -21,6 +21,8 @@ export const zhCN: Record<string, string> = {
   'Rosetta annotation workspace': 'Rosetta 标注工作台',
   'Annotation tool configuration': '标注工具配置',
   'Algorithm assistance configuration': '算法辅助配置',
+  'The annotation service URL must use HTTP or HTTPS': '标注服务地址需要使用 HTTP 或 HTTPS',
+  'The annotation page connection has closed': '标注页面连接已关闭',
   Language: '语言',
   'Cache failed': '缓存失败',
   'The local cache index is invalid': '本地缓存索引格式不正确',

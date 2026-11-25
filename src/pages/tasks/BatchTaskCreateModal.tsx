@@ -4,13 +4,10 @@ import {
   InboxOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import type { DataRecord } from '@stardustai/annotation-client';
-import {
-  Button,
-  useNavigate,
-  validateSchema,
-} from '@stardustai/annotation-client';
-import { Alert, Input, Modal, Progress, Radio, Table, Tabs } from 'antd';
+import type { DataRecord } from '../../annotation/schema';
+import { Alert, Button, Input, Modal, Progress, Radio, Table, Tabs } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { validateSchema } from '../../annotation/schema';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { TaskGroup, TaskSplit } from '../../localData/batchTasks';
 import { planLocalTasks } from '../../localData/batchTasks';

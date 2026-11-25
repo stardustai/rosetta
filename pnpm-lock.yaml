@@ -195,9 +195,6 @@ importers:
       '@msgpack/msgpack':
         specifier: 3.1.2
         version: 3.1.2
-      '@stardustai/annotation-client':
-        specifier: file:vendor/stardustai-annotation-client-0.1.0.tgz
-        version: file:vendor/stardustai-annotation-client-0.1.0.tgz(antd@5.23.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(i18next@21.9.1)(mobx@6.7.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@uiw/codemirror-theme-atomone':
         specifier: 4.21.24
         version: 4.21.24(@codemirror/language@6.13.1)(@codemirror/state@6.7.6)(@codemirror/view@6.43.15)
@@ -222,12 +219,18 @@ importers:
       classnames:
         specifier: 2.3.1
         version: 2.3.1
+      comlink:
+        specifier: 4.3.1
+        version: 4.3.1
       esdk-obs-browserjs:
         specifier: 3.25.6
         version: 3.25.6(debug@4.4.3)
       file-selector:
         specifier: 2.1.2
         version: 2.1.2
+      history:
+        specifier: 5.3.0
+        version: 5.3.0
       i18next:
         specifier: 21.9.1
         version: 21.9.1
@@ -258,6 +261,9 @@ importers:
       react-dropzone:
         specifier: 14.3.8
         version: 14.3.8(react@18.2.0)
+      react-router-dom:
+        specifier: 6.3.0
+        version: 6.3.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       uuid:
         specifier: 8.3.2
         version: 8.3.2
@@ -295,9 +301,6 @@ importers:
       '@vitejs/plugin-react':
         specifier: 4.7.0
         version: 4.7.0(vite@6.4.6(@types/node@22.20.5)(jiti@2.7.0)(lightningcss@1.33.0)(tsx@4.23.15)(yaml@2.9.1))
-      comlink:
-        specifier: 4.3.1
-        version: 4.3.1
       esbuild:
         specifier: 0.25.12
         version: 0.25.12
@@ -1114,16 +1117,6 @@ packages:
     resolution: {integrity: sha512-ee+c14ggUiM7lg4PtCjSBYU9O9dHp4FFespRnd5yj7SilUBJCL3x3aHlB+sIqbGjcPo3pEyODASnfKJuZ26YBw==}
     cpu: [x64]
     os: [win32]
-
-  '@stardustai/annotation-client@file:vendor/stardustai-annotation-client-0.1.0.tgz':
-    resolution: {integrity: sha512-IR3Lih0dqxvpUOZwgpVw3Z35UHKXXFtJ3B98hAgT8laxPtYHFuT3lLipJpgHlohHLob7RjDl7wI2W0GibAtHFg==, tarball: file:vendor/stardustai-annotation-client-0.1.0.tgz}
-    version: 0.1.0
-    peerDependencies:
-      antd: ^5.23.0
-      i18next: ^21.9.1
-      mobx: ^6.7.0
-      react: ^18.2.0
-      react-dom: ^18.2.0
 
   '@tailwindcss/node@4.3.5':
     resolution: {integrity: sha512-yT53FzV4ke0cr/BguDxhWMpm5MJu1O2muzk+tKw6lKHjODAsYArBbWwFbJiaksfzFv1tpkO9QHGzmfs1hJT66g==}
@@ -3299,17 +3292,6 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.68.2':
     optional: true
-
-  '@stardustai/annotation-client@file:vendor/stardustai-annotation-client-0.1.0.tgz(antd@5.23.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(i18next@21.9.1)(mobx@6.7.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      antd: 5.23.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      comlink: 4.3.1
-      history: 5.3.0
-      i18next: 21.9.1
-      mobx: 6.7.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-router-dom: 6.3.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
   '@tailwindcss/node@4.3.5':
     dependencies:

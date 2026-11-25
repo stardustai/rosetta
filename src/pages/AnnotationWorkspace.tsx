@@ -2,7 +2,7 @@ import { useLanguage, t } from '../i18n';
 import type {
   RosettaAnnotationHandle,
   RosettaAnnotationProps,
-} from '@stardustai/annotation-client';
+} from '../annotation/EditorFrame';
 import { RosettaAnnotation } from '../annotationService';
 import type { Ref } from 'react';
 import { useEffect, useState } from 'react';

@@ -4,8 +4,7 @@ import {
   FileOutlined,
   FolderOutlined,
 } from '@ant-design/icons';
-import { Button } from '@stardustai/annotation-client';
-import { Alert, Input, Table } from 'antd';
+import { Alert, Button, Input, Table } from 'antd';
 import { useEffect, useRef, useState } from 'react';
 import { formatSize } from '../localData/files';
 import { storageError } from './adapters';

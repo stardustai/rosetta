@@ -1,4 +1,4 @@
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
+import type { PublicAnnotationInput } from '../src/annotation/schema';
 import 'fake-indexeddb/auto';
 import { openDB } from 'idb';
 import assert from 'node:assert/strict';

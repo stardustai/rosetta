@@ -14,6 +14,8 @@
   "Rosetta annotation workspace": "Rosetta アノテーションワークスペース",
   "Annotation tool configuration": "アノテーションツール設定",
   "Algorithm assistance configuration": "アルゴリズム支援設定",
+  "The annotation service URL must use HTTP or HTTPS": "アノテーションサービスの URL は HTTP または HTTPS が必要です",
+  "The annotation page connection has closed": "アノテーションページとの接続が終了しています",
   "Language": "言語",
   "Cache failed": "キャッシュに失敗しました",
   "The local cache index is invalid": "ローカルキャッシュのインデックスが無効です",

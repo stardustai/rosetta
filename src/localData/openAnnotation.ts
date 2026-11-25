@@ -1,7 +1,6 @@
 import { t } from '../i18n';
-import type { PublicAnnotationInput } from '@stardustai/annotation-client';
-import { history } from '@stardustai/annotation-client';
-import { getPathWithBase } from '../navigation';
+import type { PublicAnnotationInput } from '../annotation/schema';
+import { getPathWithBase, history } from '../navigation';
 import { prepareCredentialHandoff } from '../objectStorage/handoff';
 import { connectionProfiles } from '../objectStorage/registry';
 import type { QuickSessionState } from './quickSession';

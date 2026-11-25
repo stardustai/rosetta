@@ -15,15 +15,14 @@ async function files(path: string): Promise<string[]> {
   return found;
 }
 
-test('the open-source distribution includes only the host and public iframe client', async () => {
+test('the public distribution includes the embedded editor host', async () => {
   const pkg = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
-  assert.ok(pkg.dependencies['@stardustai/annotation-client']);
+  assert.ok(pkg.dependencies.comlink);
+  assert.equal(pkg.dependencies['@stardustai/annotation-client'], undefined);
   assert.equal(pkg.dependencies['@stardustai/rosetta-annotation'], undefined);
-  assert.ok(
-    !(await files(join(root, 'vendor'))).some((file) =>
-      file.includes('stardustai-rosetta-annotation'),
-    ),
-  );
+  const schema = await import('../../src/annotation/schema/index.js');
+  assert.equal(typeof schema.validateSchema, 'function');
+  assert.equal(typeof schema.migrateAnnotation, 'function');
   const output = join(root, 'dist');
   for (const file of await files(output)) {
     assert.ok(

@@ -4,9 +4,9 @@ import {
   PlayCircleOutlined,
   RadarChartOutlined,
 } from '@ant-design/icons';
-import { Button, fetchResourceURL } from '@stardustai/annotation-client';
-import type { DataRecord } from '@stardustai/annotation-client';
-import { Alert, Spin } from 'antd';
+import { Alert, Button, Spin } from 'antd';
+import { fetchResourceURL } from '../../../annotation/configuration';
+import type { DataRecord } from '../../../annotation/schema';
 import { useRequest } from 'ahooks';
 import ky from 'ky';
 import { observer } from 'mobx-react';

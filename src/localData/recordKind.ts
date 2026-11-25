@@ -1,5 +1,5 @@
 import { t } from '../i18n';
-import type { DataRecord } from '@stardustai/annotation-client';
+import type { DataRecord } from '../annotation/schema';
 import type { DataKind } from './files';
 
 export const dataKindLabels: Record<DataKind, string> = {

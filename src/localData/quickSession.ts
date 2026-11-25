@@ -1,10 +1,10 @@
 import { t } from '../i18n';
 import type {
   PublicAnnotationInput,
-  RosettaAnnotationDraft,
   TaskResult,
   TaskParamVersion,
-} from '@stardustai/annotation-client';
+} from '../annotation/schema';
+import type { RosettaAnnotationDraft } from '../annotation/contracts/frame-v1';
 import { filterTaskInput, inputOperators, inputResults } from './taskInput';
 import { sessionRecords } from './sessionInfo';
 import type { AnnotationSession } from './sessionInfo';

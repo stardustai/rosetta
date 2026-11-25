@@ -1,6 +1,6 @@
 import { setLanguage } from '../../src/i18n';
 import { applicationRoot } from '../../src/main';
-import { history } from '@stardustai/annotation-client';
+import { history } from '../../src/navigation';
 import { buildLocalImport } from '../../src/localData/files';
 import {
   createTask,
