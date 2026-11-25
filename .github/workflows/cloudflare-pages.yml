@@ -1,0 +1,38 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-pages-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run typecheck
+      - run: pnpm test
+      - run: pnpm run build
+        env:
+          VITE_BASE_PATH: /
+          VITE_ANNOTATION_URL: ${{ vars.VITE_ANNOTATION_URL }}
+      - name: Publish to rosetta-annotation
+        run: npx --yes wrangler@4.161.0 pages deploy dist --project-name rosetta-annotation --branch main
+        env:
+          CLOUDFLARE_ACCOUNT_ID: deaed7a71411fa4b518d82ba117e155a
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
