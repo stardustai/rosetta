@@ -101,6 +101,8 @@ test(
     window.ReadableStream = ReadableStream;
     window.URL.createObjectURL = URL.createObjectURL;
     window.URL.revokeObjectURL = URL.revokeObjectURL;
+    window.Range.prototype.getClientRects = () =>
+      Object.assign([] as DOMRect[], { item: () => null });
     const requests: string[] = [];
     window.fetch = async (url) => {
       requests.push(String(url));
@@ -283,6 +285,15 @@ test(
         () => !document.querySelector('.annotation-preview-panel'),
         'Data preview and files should collapse again',
       );
+      findButton(document, 'JSON')!.click();
+      await until(
+        () =>
+          document
+            .querySelector('.cm-content')
+            ?.textContent.includes('"taskParams"'),
+        'Opening the JSON tab should show the current annotation input',
+      );
+      findButton(document, 'Annotation tools')!.click();
       const task = await window.hostTest.createLocalTask();
       const secondTask = await window.hostTest.createLocalTask(
         'second iframe task',

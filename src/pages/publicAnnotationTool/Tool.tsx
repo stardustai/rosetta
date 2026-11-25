@@ -33,10 +33,7 @@ import {
   formatType,
   PublicAnnotationToolStore,
 } from './PublicAnnotationToolStore';
-const JsonEditor = lazy(() => {
-  useLanguage();
-  return import('./JSONEdit');
-});
+const JsonEditor = lazy(() => import('./JSONEdit'));
 const PublicAnnotationJSONEditor = observer(
   ({ store }: { store: PublicAnnotationToolStore }) => {
     useLanguage();
