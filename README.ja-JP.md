@@ -158,6 +158,12 @@ VITE_ANNOTATION_URL=https://annotation.example.com/
 
 ワークフローは `/リポジトリ名/` のパスと、アプリ内の直接リンクを処理します。別の静的ホストを使う場合は、必要に応じて `VITE_BASE_PATH` を設定し、アプリのルートを `index.html` にフォールバックさせてください。
 
+## Cloudflare Pages に公開する
+
+[Cloudflare Pages のワークフロー](.github/workflows/cloudflare-pages.yml)は、`main` へのプッシュ時にフロントエンドを `stardust-rosetta` プロジェクトへ公開します。`main` から手動で実行することもできます。サイトのルートパス向けにビルドし、Actions の変数から `VITE_ANNOTATION_URL`、シークレットから `CLOUDFLARE_API_TOKEN` を読み込みます。
+
+Cloudflare Pages サイトのオリジンを、アノテーションサービスの `VITE_HOST_ORIGINS` に追加してください。
+
 ## うまく動かないとき
 
 | 状況                               | 確認すること                                                                         |

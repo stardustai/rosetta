@@ -156,6 +156,12 @@ The frontend can be published before the annotation service is ready. It shows a
 
 The workflow handles the `/repository/` base path and direct links to app routes. For another static host, set `VITE_BASE_PATH` as needed and serve `index.html` for app routes.
 
+## Deploy to Cloudflare Pages
+
+The [Cloudflare Pages workflow](.github/workflows/cloudflare-pages.yml) publishes the frontend to the `stardust-rosetta` project on pushes to `main`. It can also be run manually from `main`. The workflow builds for the site root and reads `VITE_ANNOTATION_URL` from Actions variables and `CLOUDFLARE_API_TOKEN` from Actions secrets.
+
+Add the Cloudflare Pages site's origin to the annotation service's `VITE_HOST_ORIGINS`.
+
 ## When something does not open
 
 | What you see                          | What to check                                                                             |

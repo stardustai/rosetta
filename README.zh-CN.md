@@ -160,6 +160,12 @@ VITE_ANNOTATION_URL=https://annotation.example.com/
 
 工作流会处理 `/仓库名/` 路径，以及直接打开任务链接的情况。部署到其他静态服务器时，可以通过 `VITE_BASE_PATH` 设置路径前缀，并让应用路由回退到 `index.html`。
 
+## 部署到 Cloudflare Pages
+
+推送到 `main` 时，[Cloudflare Pages 工作流](.github/workflows/cloudflare-pages.yml)会把前端部署到 `stardust-rosetta` 项目，也可以从 `main` 手动运行。工作流按站点根路径构建，从 Actions variables 读取 `VITE_ANNOTATION_URL`，从 Actions secrets 读取 `CLOUDFLARE_API_TOKEN`。
+
+把 Cloudflare Pages 站点的 Origin 加入标注服务的 `VITE_HOST_ORIGINS`。
+
 ## 常见问题
 
 | 遇到的情况               | 检查方法                                                         |

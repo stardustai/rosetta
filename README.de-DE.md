@@ -158,6 +158,12 @@ Das Frontend kann vor dem Annotationsdienst veröffentlicht werden. Bis dessen A
 
 Der Workflow berücksichtigt den Basispfad `/repository/` und direkte Links auf App-Routen. Bei anderen statischen Hosts setzen Sie bei Bedarf `VITE_BASE_PATH` und lassen App-Routen auf `index.html` zurückfallen.
 
+## Auf Cloudflare Pages veröffentlichen
+
+Der [Cloudflare-Pages-Workflow](.github/workflows/cloudflare-pages.yml) veröffentlicht das Frontend im Projekt `stardust-rosetta`, wenn Änderungen nach `main` gepusht werden. Er kann auch manuell für `main` gestartet werden. Das Frontend wird für den Wurzelpfad gebaut. Der Workflow liest `VITE_ANNOTATION_URL` aus den Actions-Variablen und `CLOUDFLARE_API_TOKEN` aus den Actions-Secrets.
+
+Trage den Origin der Cloudflare-Pages-Website in `VITE_HOST_ORIGINS` des Annotationsdienstes ein.
+
 ## Wenn etwas nicht funktioniert
 
 | Anzeige oder Verhalten                  | Prüfen                                                                                      |
